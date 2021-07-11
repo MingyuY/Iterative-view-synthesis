@@ -13,10 +13,10 @@ Tensorflow implementation of [**ID-Unet: Iterative Soft and Hard Deformation for
 
 - MultiPIE
 <p align="center"> <img src="./results/result2.png" width="95%"><br><center></center></p>
-<p align="center"> <img src="./results/result4.png" width="75%"><br><center></center></p>
+<p align="center"> <img src="./results/result4.png" width="65%"><br><center></center></p>
 
 - Flow
-<p align="center"> <img src="./results/flow.png" width="75%"><br><center></center></p>
+<p align="center"> <img src="./results/flow.png" width="65%"><br><center></center></p>
 
 
 ## Preparation
