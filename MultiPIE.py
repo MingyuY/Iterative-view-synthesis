@@ -705,7 +705,7 @@ if __name__ == '__main__':
     generator = generate_style_res_VI(y_num = 1, y_dim=y_dim, y_diff_dim = y_diff_dim, channel=32)
     latent_discriminator = LatentDiscriminator(y_dim = y_dim)
     batch_size = args.batch_size
-    train_batch_size = batch_size
+    train_batch_size = args.batch_size
 
     gan = SNGAN(encoder, generator, discriminator, latent_discriminator, batch_size, train_batch_size, log_dir=args.log_dir, model_dir=args.model_dir)
     
