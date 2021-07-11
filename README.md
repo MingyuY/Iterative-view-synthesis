@@ -47,14 +47,18 @@ Exemplar commands are listed here for a quick start.
 - To train with size of 128 X 128
 
     ```console
-    python  
+    python MultiPIE.py --mode training
+    
+    python chair.py --mode training
     ```
 
 ### Testing
-- Example of generating samples
+- Example of test
 
     ```console
-    python  
+    python  MultiPIE.py --mode test --batch_size 2 --model_path 'Path to Training Model'
+    
+    python  chair.py --mode test --batch_size 2 --model_path 'Path to Training Model'
     ```
 
 ## Citation
