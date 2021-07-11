@@ -40,6 +40,7 @@ Exemplar commands are listed here for a quick start.
 
     ```console
     python datasets/creat_txt.py --path_MultiPIE 'Path to MultiPIE Dataset' --path_chair 'Path to chair Dataset' --path_300w_LP 'Path to 300w-LP Dataset'
+    shuf datasets/multiPIE_train_paired.txt -o  datasets/multiPIE_train_paired_shuf.txt
     python datasets/creat_tf.py --path_MultiPIE 'Path to MultiPIE Dataset' --path_chair 'Path to chair Dataset' --path_300w_LP 'Path to 300w-LP Dataset'
 
 ### Training
