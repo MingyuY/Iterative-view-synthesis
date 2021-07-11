@@ -1,6 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
+Created on Sun Jul 11 17:43:42 2021
+
+@author: ubuntu
+"""
+
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Mar 15 13:20:39 2018
 
 @author: ivy
@@ -24,8 +32,6 @@ def creat_paired_300w_LP_tf(path):
         for line in f:
             line = line.strip()
             field = line.split(' ')
-    #        temp = field[1:41]
-    #        label=[np.int(i) for i in temp]
             imga = Image.open(root+field[0])
             imgb = Image.open(root+field[1])
             ida = [field[4]] 
@@ -34,11 +40,6 @@ def creat_paired_300w_LP_tf(path):
             azimuthb = [int(field[3])]
             if float(imga.size[0])/float(imga.size[1])>4 or float(imga.size[1])/float(imga.size[0])>4:
                 continue
-    #        img = img.crop((0, 20, 178, 198))  #original align, crop to 178*178; new align, no crop
-            # img = img.crop((25, 45, 153, 173))
-    #        img= img.resize((64,64))
-    #         img.save('../CelebA/Img/'+str(count)+'_128.jpg')
-    #         count +=1
             img_rawa = imga.tobytes()
             img_rawb = imgb.tobytes()
             example = tf.train.Example(features=tf.train.Features(feature={'ida': tf.train.Feature(bytes_list=tf.train.BytesList(value=ida)),\
@@ -117,8 +118,6 @@ def creat_paired_multiPIE_tf(path):
         for line in f:
             line = line.strip()
             field = line.split(' ')
-    #        temp = field[1:41]
-    #        label=[np.int(i) for i in temp]
             imga = Image.open(root+field[0])
             imgb = Image.open(root+field[1])
             ida = [int(field[2])]
@@ -131,11 +130,6 @@ def creat_paired_multiPIE_tf(path):
             lightnessb = [int(field[9])]
             if float(imga.size[0])/float(imga.size[1])>4 or float(imga.size[1])/float(imga.size[0])>4:
                 continue
-    #        img = img.crop((0, 20, 178, 198))  #original align, crop to 178*178; new align, no crop
-            # img = img.crop((25, 45, 153, 173))
-    #        img= img.resize((64,64))
-    #         img.save('../CelebA/Img/'+str(count)+'_128.jpg')
-    #         count +=1
             img_rawa = imga.tobytes()
             img_rawb = imgb.tobytes()
             example = tf.train.Example(features=tf.train.Features(feature={'expressiona': tf.train.Feature(int64_list=tf.train.Int64List(value=expressiona)),\
@@ -216,54 +210,54 @@ def creat_paired_chair_tf():
     print 'Done!'
     writer.close()
     
-#    count = 0
-#    writer = tf.python_io.TFRecordWriter("../chair128_test_paired.tfrecords")
-#    with open(list_file_test, 'r') as f:
-#        for line in f:
-#            line = line.strip()
-#            field = line.split(' ')
-#    #        temp = field[1:41]
-#    #        label=[np.int(i) for i in temp]
-#            imga = Image.open(root+field[0])
-#            imgb = Image.open(root+field[1])
-#            posea = [int(field[2])]
-#            pa = [int(field[3][1:])]
-#            ta = [int(field[4][1:])]
-#            poseb = [int(field[5])]
-#            pb = [int(field[6][1:])]
-#            tb = [int(field[7][1:])]
-#            if float(imga.size[0])/float(imga.size[1])>4 or float(imga.size[1])/float(imga.size[0])>4:
-#                continue
-#    #        img = img.crop((0, 20, 178, 198))  #original align, crop to 178*178; new align, no crop
-#            # img = img.crop((25, 45, 153, 173))
-#    #        img= img.resize((64,64))
-#    #         img.save('../CelebA/Img/'+str(count)+'_128.jpg')
-#    #         count +=1
-#            imga=imga.crop([120, 120, 480, 480])
-#            imgb=imgb.crop([120, 120, 480, 480])
-#            imga.save('test.jpg')
-#            imga= imga.resize((128,128))
-#            imgb= imgb.resize((128,128))
-#            img_rawa = imga.tobytes()
-#            img_rawb = imgb.tobytes()
-#            example = tf.train.Example(features=tf.train.Features(feature={'posea': tf.train.Feature(int64_list=tf.train.Int64List(value=posea)),\
-#                                                                           'pa': tf.train.Feature(int64_list=tf.train.Int64List(value=pa)),\
-#                                                                           'ta': tf.train.Feature(int64_list=tf.train.Int64List(value=ta)),\
-#                                                                           'img_rawa': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_rawa])),\
-#                                                                           'poseb': tf.train.Feature(int64_list=tf.train.Int64List(value=poseb)),\
-#                                                                           'pb': tf.train.Feature(int64_list=tf.train.Int64List(value=pb)),\
-#                                                                           'tb': tf.train.Feature(int64_list=tf.train.Int64List(value=pb)),\
-#                                                                           'img_rawb': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_rawb]))}))
-#            # print example
-#            writer.write(example.SerializeToString())
-#            count = count + 1
-#    # #        if count%100000 ==0:break
-#            if count%500 ==0:
-#                #print "%d images are processed." %count
-#                print 'Time:{0},{1} images are processed.'.format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),count)
-#        print "%d images are processed." %count
-#    print 'Done!'
-#    writer.close()
+    count = 0
+    writer = tf.python_io.TFRecordWriter("../chair128_test_paired.tfrecords")
+    with open(list_file_test, 'r') as f:
+        for line in f:
+            line = line.strip()
+            field = line.split(' ')
+    #        temp = field[1:41]
+    #        label=[np.int(i) for i in temp]
+            imga = Image.open(root+field[0])
+            imgb = Image.open(root+field[1])
+            posea = [int(field[2])]
+            pa = [int(field[3][1:])]
+            ta = [int(field[4][1:])]
+            poseb = [int(field[5])]
+            pb = [int(field[6][1:])]
+            tb = [int(field[7][1:])]
+            if float(imga.size[0])/float(imga.size[1])>4 or float(imga.size[1])/float(imga.size[0])>4:
+                continue
+    #        img = img.crop((0, 20, 178, 198))  #original align, crop to 178*178; new align, no crop
+            # img = img.crop((25, 45, 153, 173))
+    #        img= img.resize((64,64))
+    #         img.save('../CelebA/Img/'+str(count)+'_128.jpg')
+    #         count +=1
+            imga=imga.crop([120, 120, 480, 480])
+            imgb=imgb.crop([120, 120, 480, 480])
+            imga.save('test.jpg')
+            imga= imga.resize((128,128))
+            imgb= imgb.resize((128,128))
+            img_rawa = imga.tobytes()
+            img_rawb = imgb.tobytes()
+            example = tf.train.Example(features=tf.train.Features(feature={'posea': tf.train.Feature(int64_list=tf.train.Int64List(value=posea)),\
+                                                                           'pa': tf.train.Feature(int64_list=tf.train.Int64List(value=pa)),\
+                                                                           'ta': tf.train.Feature(int64_list=tf.train.Int64List(value=ta)),\
+                                                                           'img_rawa': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_rawa])),\
+                                                                           'poseb': tf.train.Feature(int64_list=tf.train.Int64List(value=poseb)),\
+                                                                           'pb': tf.train.Feature(int64_list=tf.train.Int64List(value=pb)),\
+                                                                           'tb': tf.train.Feature(int64_list=tf.train.Int64List(value=pb)),\
+                                                                           'img_rawb': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_rawb]))}))
+            # print example
+            writer.write(example.SerializeToString())
+            count = count + 1
+    # #        if count%100000 ==0:break
+            if count%500 ==0:
+                #print "%d images are processed." %count
+                print 'Time:{0},{1} images are processed.'.format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),count)
+        print "%d images are processed." %count
+    print 'Done!'
+    writer.close()
 
 
     
