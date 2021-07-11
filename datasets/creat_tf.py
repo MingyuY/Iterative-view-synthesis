@@ -274,5 +274,5 @@ if __name__ == '__main__':
     parser.add_argument('--path_300w_LP', type=str, default=None, help='datasets path')
     args = parser.parse_args()
     creat_paired_multiPIE_tf(args.path_chair)
-    creat_paired_chair_tf(args.path_path_300w_LP)
+    creat_paired_chair_tf(args.path_300w_LP)
     creat_paired_300w_LP_tf(args.path_multiPIE)
