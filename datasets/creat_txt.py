@@ -184,8 +184,6 @@ def creat_multiPIE_paired_tf(path):
     #img_list = glob(img_dir+'/*/*.png') 
 #    views = {240:0, 200:1, 190:2, 140:3, 130:4, 120:5, 110:6, 90:7, 80:8, 51:9, 50:10, 41:11, 10:12}
     views = {110:0, 120:1, 90:2, 80:3, 130:4, 140:5, 51:6, 50:7, 41:8, 190:9, 200:10, 10:11, 240:12}
-    train_num = np.load('/home/ymy/zzy/file-others/multiPIE_id/train_id.npy')
-    test_num = np.load('/home/ymy/zzy/file-others/multiPIE_id/test_id.npy')
     with open('multiPIE_train_paired.txt','w') as f:
     #    for i in range(10):
         for _, i in enumerate(train_num):
