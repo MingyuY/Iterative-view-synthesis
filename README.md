@@ -56,9 +56,9 @@ Exemplar commands are listed here for a quick start.
 - Example of test
 
     ```console
-    python  MultiPIE.py --mode test --batch_size 2 --model_path 'Path to Training Model'
+    python  MultiPIE.py --mode test --batch_size 1 --model_path 'Path to Training Model'
     
-    python  chair.py --mode test --batch_size 2 --model_path 'Path to Training Model'
+    python  chair.py --mode test --batch_size 1 --model_path 'Path to Training Model'
     ```
 
 ## Citation
